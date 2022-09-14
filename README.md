@@ -1,2 +1,2 @@
-# nuvolum-challenge
+# Nuvolum Product Slider challenge
 Nuvolum Product Slider
