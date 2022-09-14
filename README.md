@@ -1,2 +1,2 @@
 # Nuvolum Product Slider challenge
-Nuvolum Product Slider
+Link - https://nuvo-slider-challenge.netlify.app/
