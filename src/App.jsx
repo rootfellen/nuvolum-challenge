@@ -4,7 +4,6 @@ import Slider from "./components/Slider/Slider";
 import style from "./styles/main.module.scss";
 import { useApiGet } from "./hooks/useApiHook";
 import API_URL from "./constants/api";
-import mockup from "./assets/mockup";
 
 const App = () => {
   // Setting state to store information about fetched products
