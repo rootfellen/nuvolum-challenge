@@ -1,0 +1,29 @@
+@use "../../styles/variables.scss";
+@use "../../styles/mixins.scss";
+
+.header {
+  width: 100%;
+  @include mixins.flexbox($alignItems: center, $direction: column);
+  padding: 2rem;
+  .title {
+    font-size: variables.$font-lg;
+    margin-bottom: 1rem;
+    @include mixins.breakpoint-down(small) {
+      font-size: variables.$font-md;
+      font-weight: 800;
+    }
+  }
+  .subtitle {
+    font-size: variables.$font-md;
+    width: 33%;
+    line-height: 1.7rem;
+    @include mixins.breakpoint-down(large) {
+      text-align: center;
+      width: 70%;
+    }
+    @include mixins.breakpoint-down(small) {
+      font-size: variables.$font-sm;
+      width: 100%;
+    }
+  }
+}

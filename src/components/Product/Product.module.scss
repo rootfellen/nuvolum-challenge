@@ -1,0 +1,103 @@
+@use "../../styles/mixins.scss";
+@use "../../styles//variables.scss";
+
+.wrapper {
+  @include mixins.flexbox($display: flex);
+  border-radius: 7px;
+  margin: 1rem;
+  box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.13);
+}
+.product_wrapper {
+  @include mixins.flexbox(
+    $display: flex,
+    $shrink: 1,
+    $grow: 1,
+    $alignItems: center
+  );
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: rgb(253, 252, 252);
+    .product_arrow_img {
+      transform: scale(1.2);
+    }
+  }
+  background-color: #fff;
+  padding: 2rem;
+  flex: 1 1 20%;
+  cursor: pointer;
+  @include mixins.breakpoint-down(large) {
+    padding: 1rem;
+  }
+
+  .product_image {
+    max-width: 4rem;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .product_title {
+    font-size: variables.$font-md;
+    margin-left: 2rem;
+    flex: 1 1 60%;
+    @include mixins.breakpoint-down(small) {
+      font-size: variables.$font-sm;
+      font-weight: 800;
+    }
+  }
+  .product_arrow {
+    max-width: 4rem;
+    height: 4rem;
+    margin: 0rem 3rem;
+    border: 3px solid variables.$secondary-color;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 50%;
+    @include mixins.flexbox(
+      $grow: 1,
+      $shrink: 0,
+      $flex-basis: 20%,
+      $justifyContent: center,
+      $alignItems: center
+    );
+    @include mixins.breakpoint-down(small) {
+      max-width: 2rem;
+      height: 2rem;
+    }
+  }
+  .product_arrow_active {
+    transition: background-color 0.3s ease-in-out;
+    max-width: 4rem;
+    height: 4rem;
+    margin: 0rem 3rem;
+    background-color: variables.$secondary-color;
+    border-radius: 50%;
+    @include mixins.flexbox(
+      $grow: 1,
+      $shrink: 0,
+      $flex-basis: 20%,
+      $justifyContent: center,
+      $alignItems: center
+    );
+    @include mixins.breakpoint-down(small) {
+      max-width: 2rem;
+      height: 2rem;
+    }
+  }
+  %product_arrow_image {
+    transition: transform 0.3s ease-in-out;
+    max-width: 1rem;
+    @include mixins.breakpoint-down(small) {
+      max-width: 0.5rem;
+    }
+  }
+
+  .product_arrow_img {
+    @extend %product_arrow_image;
+  }
+
+  .product_arrow_img_active {
+    @extend %product_arrow_image;
+    transform: rotate(180deg);
+  }
+}

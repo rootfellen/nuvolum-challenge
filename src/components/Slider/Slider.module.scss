@@ -1,0 +1,31 @@
+@use "../../styles//mixins.scss";
+@use "../../styles/variables.scss";
+.wrapper {
+  @include mixins.flexbox($display: flex);
+  overflow: hidden;
+  border-radius: 7px;
+  margin: 1rem;
+  box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.13);
+  @include mixins.breakpoint-down(large) {
+    @include mixins.flexbox($direction: column);
+  }
+}
+
+.productsContainer {
+  @include mixins.flexbox(
+    $display: flex,
+    $direction: column,
+    $shrink: 0,
+    $grow: 1,
+    $flex-basis: 50%
+  );
+}
+.descriptionContainer {
+  background-color: lightblue;
+  @include mixins.flexbox(
+    $display: flex,
+    $shrink: 0,
+    $grow: 1,
+    $flex-basis: 50%
+  );
+}

@@ -1,0 +1,97 @@
+@use "../../styles/mixins.scss";
+@use "../../styles//variables.scss";
+
+%descriptionContainer {
+  background-color: lightblue;
+  @include mixins.flexbox(
+    $display: flex,
+    $direction: column,
+    $shrink: 0,
+    $grow: 1,
+    $flex-basis: 50%,
+    $alignItems: center,
+    $justifyContent: space-between
+  );
+  padding: 2rem;
+  @include mixins.breakpoint-down(small) {
+    padding: 1rem;
+  }
+}
+.descriptionContainer {
+  @extend %descriptionContainer;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.descriptionWrapper {
+  @extend %descriptionContainer;
+  justify-content: center;
+}
+.message {
+  font-size: variables.$font-lg;
+  @include mixins.breakpoint-down(small) {
+    text-align: center;
+    font-size: variables.$font-sm;
+  }
+}
+.product_description_image {
+  max-width: 10rem;
+  img {
+    width: 100%;
+  }
+  @include mixins.breakpoint-down(small) {
+    max-width: 7rem;
+  }
+}
+.product_description_price {
+  font-size: variables.$font-lg;
+  margin: 1rem 0rem;
+  @include mixins.breakpoint-down(small) {
+    font-size: variables.$font-md;
+    font-weight: 800;
+  }
+}
+.product_description_info {
+  width: 70%;
+  font-size: variables.$font-md;
+  line-height: 2rem;
+  @include mixins.breakpoint-down(large) {
+    text-align: center;
+  }
+  @include mixins.breakpoint-down(small) {
+    width: 100%;
+  }
+}
+.product_description_rate {
+  @include mixins.flexbox($display: flex);
+  @include mixins.breakpoint-down(large) {
+    margin: 1.5rem 0rem;
+  }
+  @include mixins.breakpoint-down(small) {
+    margin: 1rem 0rem;
+  }
+}
+
+.cta_btn {
+  all: unset;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 7px;
+  cursor: pointer;
+  color: variables.$secondary-color;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: rgb(244, 252, 255);
+    box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    background-color: transparent;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    background-color: lightblue;
+  }
+}
