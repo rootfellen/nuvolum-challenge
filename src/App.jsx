@@ -30,7 +30,7 @@ const App = () => {
         architecto neque illum eius error, totam mollitia reiciendis officiis
         quis magnam?"
           />
-          <Slider products={products} />
+          <Slider products={products} fetchingError={data.error} />
         </div>
       )}
     </div>

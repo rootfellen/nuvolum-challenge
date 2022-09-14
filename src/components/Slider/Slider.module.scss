@@ -29,3 +29,9 @@
     $flex-basis: 50%
   );
 }
+.error_message {
+  min-height: 50vh;
+  @include mixins.flexbox($justifyContent: center, $alignItems: center);
+  font-weight: 800;
+  color: red;
+}

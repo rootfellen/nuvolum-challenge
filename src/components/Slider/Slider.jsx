@@ -4,7 +4,7 @@ import Product from "../Product/Product";
 import style from "./Slider.module.scss";
 
 const Slider = (props) => {
-  const { products } = props;
+  const { products, fetchingError } = props;
   const [selected, setSelected] = useState(products[0]);
 
   // Handling Product Selection
@@ -18,21 +18,29 @@ const Slider = (props) => {
   };
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.productsContainer}>
-        {products.map((product) => (
-          <div key={product.id} onClick={() => productHandler(product)}>
-            <Product
-              key={product.id}
-              product={product}
-              selectedProductItem={selected}
-            />
+    <>
+      {fetchingError ? (
+        <div className={style.error_message}>
+          Error while fetching produtcs...
+        </div>
+      ) : (
+        <div className={style.wrapper}>
+          <div className={style.productsContainer}>
+            {products.map((product) => (
+              <div key={product.id} onClick={() => productHandler(product)}>
+                <Product
+                  key={product.id}
+                  product={product}
+                  selectedProductItem={selected}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <Description product={products} selectedItem={selected} />
-    </div>
+          <Description product={products} selectedItem={selected} />
+        </div>
+      )}
+    </>
   );
 };
 
