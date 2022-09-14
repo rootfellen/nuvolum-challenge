@@ -21,7 +21,7 @@ const Slider = (props) => {
     <>
       {fetchingError ? (
         <div className={style.error_message}>
-          Error while fetching produtcs...
+          Error while fetching products...
         </div>
       ) : (
         <div className={style.wrapper}>
